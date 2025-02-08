@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
     const audio = audioRef.current;
 
     if (audio) {
-      // Try playing immediately
+      // Attempt to play immediately
       const playPromise = audio.play();
 
       if (playPromise !== undefined) {
@@ -17,11 +17,14 @@ export default function App({ Component, pageProps }) {
             console.log("Autoplay started successfully");
           })
           .catch((error) => {
-            console.log("Autoplay blocked. Attempting workaround...");
+            console.log("Autoplay blocked. Waiting for user interaction...");
 
             // Autoplay blocked, wait for user interaction
             const enableAudio = () => {
-              audio.play();
+              audio.muted = false; // Explicitly unmute
+              audio.play().catch(err => console.log("Play error:", err));
+              
+              // Remove event listeners after the first interaction
               document.removeEventListener("click", enableAudio);
               document.removeEventListener("touchstart", enableAudio);
             };
@@ -36,7 +39,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       {/* Background Music */}
-      <audio ref={audioRef} autoPlay loop muted={false}>
+      <audio ref={audioRef} autoPlay loop>
         <source src="/music/Made For Me.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
