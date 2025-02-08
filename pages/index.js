@@ -13,13 +13,8 @@ export default function Home({ allPostsData }) {
         <center>
           <p>
           <br/>I am formally asking you out on <strong><em>February 14th</em></strong> because the two of us are meant to be.
+          <br/><strong><em>Rachel</em></strong>, you were made for me.
           </p>
-        </center>
-      </section>
-      <section className={utilStyles.headingLg}>
-        <center>
-          <p>
-            <br/><strong><em>Rachel</em></strong>, you were made for me.          </p>
         </center>
       </section>
     </Layout>
