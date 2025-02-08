@@ -22,11 +22,6 @@ export default function Home({ allPostsData }) {
             <br/><strong><em>Rachel</em></strong>, you were made for me.          </p>
         </center>
       </section>
-      <section className={utilStyles.bottomText}>
-        <center>
-          <p>If you're not convinced, why don't you tap anywhere?</p>
-        </center>
-      </section>
     </Layout>
   );
 }

@@ -78,7 +78,7 @@ export default function App({ Component, pageProps }) {
             zIndex: 1000
           }}
         >
-          Tap to Play Music
+          Tap if you're not convinced
         </button>
       )}
 
